@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: g
+Build-Jdk: 11.0.2
+Implementation-Title: EKart_Server
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.eta
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/EKart_Server
+Created-By: Maven Integration for Eclipse
+
