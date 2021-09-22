@@ -1,0 +1,42 @@
+2021-06-22 12:32:26.174  INFO 16080 --- [restartedMain] com.infy.ekart.EKartApplication          : Starting EKartApplication on Yoga with PID 16080 (C:\Users\g\Desktop\EKart\EKart_Server\target\classes started by g in C:\Users\g\Desktop\EKart\EKart_Server)
+2021-06-22 12:32:26.204  INFO 16080 --- [restartedMain] com.infy.ekart.EKartApplication          : No active profile set, falling back to default profiles: default
+2021-06-22 12:32:26.508  INFO 16080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-06-22 12:32:26.509  INFO 16080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-06-22 12:32:32.434  INFO 16080 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-06-22 12:32:32.569  INFO 16080 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102ms. Found 0 repository interfaces.
+2021-06-22 12:32:34.278  INFO 16080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8b2c5435] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-22 12:32:37.307  INFO 16080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 3333 (http)
+2021-06-22 12:32:37.441  INFO 16080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-22 12:32:37.445  INFO 16080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2021-06-22 12:32:37.500  INFO 16080 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Users\g\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.2.v20200815-0835\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/g/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.2.v20200815-0835/jre/bin/server;C:/Users/g/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.2.v20200815-0835/jre/bin;C:\Windows\System32;D:\Git\cmd;D:\nodejs;C:\Users\g\AppData\Roaming\npm; ;C:\Windows\System32;D:\nodejs;D:\Java\jre (java 11)\bin;;D:\Microsoft VS Code\bin;C:\Users\g\Desktop;;.]
+2021-06-22 12:32:37.929  INFO 16080 --- [restartedMain] o.a.c.c.C.[.[localhost].[/EKart_Server]  : Initializing Spring embedded WebApplicationContext
+2021-06-22 12:32:37.930  INFO 16080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11419 ms
+2021-06-22 12:32:38.582  INFO 16080 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-22 12:32:39.190  INFO 16080 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-22 12:32:39.517  INFO 16080 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-06-22 12:32:39.855  INFO 16080 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2021-06-22 12:32:39.860  INFO 16080 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-06-22 12:32:40.424  INFO 16080 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-06-22 12:32:41.017  INFO 16080 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-06-22 12:32:43.825  INFO 16080 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 12:32:46.052  WARN 16080 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-22 12:32:47.272  INFO 16080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-06-22 12:32:47.631  INFO 16080 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-06-22 12:32:49.243  INFO 16080 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-22 12:32:49.338  INFO 16080 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-22 12:32:49.434  INFO 16080 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-22 12:32:50.165  INFO 16080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: changePasswordUsingPOST_1
+2021-06-22 12:32:50.498  INFO 16080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 3333 (http) with context path '/EKart_Server'
+2021-06-22 12:32:50.514  INFO 16080 --- [restartedMain] com.infy.ekart.EKartApplication          : Started EKartApplication in 25.93 seconds (JVM running for 28.738)
+2021-06-22 12:36:54.872  INFO 16080 --- [http-nio-3333-exec-1] o.a.c.c.C.[.[localhost].[/EKart_Server]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-22 12:36:54.873  INFO 16080 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-22 12:36:54.928  INFO 16080 --- [http-nio-3333-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 54 ms
+2021-06-22 12:36:55.273  INFO 16080 --- [http-nio-3333-exec-2] com.infy.ekart.api.SellerAPI             : SELLER TRYING TO LOGIN. SELLER EMAIL ID: brad@infosys.com
+2021-06-22 12:36:55.604  INFO 16080 --- [http-nio-3333-exec-2] com.infy.ekart.api.SellerAPI             : SELLER LOGIN SUCCESSFUL. SELLER EMAIL ID: brad@infosys.com
+2021-06-22 12:36:59.311  INFO 16080 --- [http-nio-3333-exec-3] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-06-22 13:00:02.082  INFO 16080 --- [http-nio-3333-exec-7] com.infy.ekart.api.SellerAPI             : SELLER TRYING TO LOGIN. SELLER EMAIL ID: brad@infosys.com
+2021-06-22 13:00:02.101  INFO 16080 --- [http-nio-3333-exec-7] com.infy.ekart.api.SellerAPI             : SELLER LOGIN SUCCESSFUL. SELLER EMAIL ID: brad@infosys.com
+2021-06-22 13:08:27.258  INFO 16080 --- [http-nio-3333-exec-8] com.infy.ekart.api.SellerAPI             : ADDING PRODUCT TO SELLER CATALOG, PRODUCT NAME: prodtestname	SELLER NAME = brad@infosys.com
+2021-06-22 13:08:27.321  INFO 16080 --- [http-nio-3333-exec-8] com.infy.ekart.api.SellerAPI             : PRODUCT ADDED SUCCESSFULLY TO SELLER CATALOG, PRODUCT NAME: prodtestname	SELLER NAME = brad@infosys.com
