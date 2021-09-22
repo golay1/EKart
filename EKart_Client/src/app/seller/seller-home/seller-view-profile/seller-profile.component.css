@@ -1,0 +1,8 @@
+.text-area {
+    vertical-align: baseline;
+}
+
+.text-area > .input-group-append {
+    width: max-content;
+    height: max-content;
+}

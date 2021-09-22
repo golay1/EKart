@@ -1,0 +1,153 @@
+<div class="text-center table-responsive table-border" style="width: 115%" *ngIf="displayOrders">
+
+    <table class="table table-responsive text-center table-condensed">
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>Order Date</th>
+                <th>Product Id</th>
+                <th>Address Id</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let order of orderData">
+                <td>{{order.orderNumber}}</td>
+                <!-- <td>{{order.customerEmailId}}</td> -->
+                <td>{{order.dateOfOrder | dateConverter | date:'dd-MMM-yyyy'}}</td>
+                <td><a routerLink="." (click)="displayProductDetails(order.product)">{{order.product.productId}}</a>
+                </td>
+                <td><a routerLink="." (click)="displayAddressDetails(order.addressId)">{{order.addressId}}</a></td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.totalPrice | currency:'INR':'symbol-narrow'}}</td>
+                <td>{{order.orderStatus}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)='modifyVariablesOnClick(order)'>Modify Order
+                        Status</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <div *ngIf="errorMessage!='' && successMessage!=''">
+        <div class="error-message text-center">{{errorMessage}}</div>
+        <div class="success-message text-center">{{successMessage}}</div>
+    </div>
+</div>
+
+<div *ngIf="!displayOrders && newOrder==null" class="table-border">
+        <div class="error-message text-center">No orders found</div>
+</div>
+
+<div *ngIf="newOrder!=null">
+    <div class="col-md-8 offset-md-2 form-bg-light">
+        <form (ngSubmit)="updateStatus(newOrder)" class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Order Id</th>
+                    <td>{{newOrder.orderNumber}}</td>
+                </tr>
+                <tr>
+                    <th>Date of order</th>
+                    <td>{{newOrder.dateOfOrder | dateConverter | date:'dd-MMM-yyyy'}}</td>
+                </tr>
+                <tr>
+                    <th>Product Id</th>
+                    <td><a routerLink="." (click)="displayProductDetails(newOrder.product)">{{newOrder.product.productId}}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address Id</th>
+                    <td><a routerLink="." (click)="displayAddressDetails(newOrder.addressId)">{{newOrder.addressId}}</a></td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td>{{newOrder.quantity}}</td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>{{newOrder.totalPrice | currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+                <tr>
+                    <th>Order Status</th>
+                    <td>
+
+                        <div class="form-group">
+                            <select class="form-control" name="status" [(ngModel)]="newOrder.orderStatus">
+                                <option *ngFor="let status of statusList" [value]="status">{{status}}</option>
+                            </select>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-success col-md-3 offset-md-2">Update Details</button>
+            <button type="button" (click)="cancel()"
+                class="btn btn-warning col-md-3 offset-md-2">Cancel</button>
+        </form>
+
+    </div>
+</div>
+
+<div *ngIf="displayProduct!=null">
+    <div class="col-md-8 offset-md-2 form-bg-light">
+        <table class="table table-responsive">
+            <tr>
+                <th>Product Id</th>
+                <td>{{displayProduct.productId}}</td>
+            </tr>
+            <tr>
+                <th>Product Description</th>
+                <td>{{displayProduct.description}}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{displayProduct.category}}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{displayProduct.brand}}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{displayProduct.price}}</td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td>{{displayProduct.discount}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="addressToDisplay!=null">
+    <div class="col-md-8 offset-md-2 form-bg-light table-responsive">
+        <table class="table table-condensed">
+            <tbody style="width: 100%">
+                <tr>
+                    <th>Address Id</th>
+                    <td>{{addressToDisplay.addressId}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        {{addressToDisplay.addressLine1}},<br />
+                        {{addressToDisplay.addressLine2}},<br />
+                        {{addressToDisplay.city}},<br />
+                        {{addressToDisplay.state}}-
+                        {{addressToDisplay.pin}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Contact No</th>
+                    <td>{{addressToDisplay.contactNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
