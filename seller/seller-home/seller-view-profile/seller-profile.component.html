@@ -1,0 +1,86 @@
+<div class="col-md-8 offset-md-2 table-border">
+    <div class="text-center">
+        <h3 class="title">My Details</h3>
+    </div>
+    <table class="table table-condensed">
+        <tr>
+            <th>Name:</th>
+            <td>
+                <div *ngIf="updating!='updateName'">
+                   
+                    {{seller.name}}
+                        <a [routerLink]="" data-toggle="tooltip"  (click)="linkClick('updateName')">
+                            <i class="fa fa-pencil align-right" aria-hidden="true"></i>
+                        </a>
+                    
+                </div>
+
+                <div *ngIf="updating=='updateName'">
+                    <div class="input-group">
+                        <input type="text" class="form-control" [(ngModel)]="sellerToUpdate.name" placeholder="Enter name..">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="button" (click)="updateDetail('update')"><i class="fa fa-check faa-burst"></i></button>  
+                            <button class="btn btn-danger" type="button" (click)="updateDetail('cancel')"><i class="fa fa-times faa-burst"></i></button>  
+                           </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Email Id:</th>
+            <td>
+                {{seller.emailId}}
+            </td>
+
+        </tr>
+        <tr>
+            <th>Phone Number:</th>
+            <td>
+                <div *ngIf="updating!='updatePhoneNumber'">
+                       
+                    {{seller.phoneNumber}}
+                            <a [routerLink]="" (click)="linkClick('updatePhoneNumber')" class="">
+                                <i class="fa fa-pencil align-right" aria-hidden="true"></i>
+                            </a>
+                    </div>
+    
+                    <div *ngIf="updating=='updatePhoneNumber'">
+                        <div class="input-group">
+                            <input type="text" class="form-control" [(ngModel)]="sellerToUpdate.phoneNumber">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="button" (click)="updateDetail('update')"><i class="fa fa-check faa-burst"></i></button>  
+                                <button class="btn btn-danger" type="button" (click)="updateDetail('cancel')"><i class="fa fa-times faa-burst"></i></button>  
+                               </div>
+                        </div>
+                    </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>
+                <div *ngIf="updating!='updateAddress'">
+                        {{seller.address}} 
+                        <a [routerLink]="" (click)="linkClick('updateAddress')" class="">
+                            <i class="fa fa-pencil align-right" aria-hidden="true"></i>
+                        </a>
+                </div>
+    
+                    <div *ngIf="updating=='updateAddress'">
+                        <div class="input-group  text-area">
+                            <!-- <input type="text" class="form-control" [(ngModel)]="sellerToUpdate.address"> -->
+                            <textarea name="address" id="address" class="form-control" [(ngModel)]="sellerToUpdate.address"></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="button" (click)="updateDetail('update')"><i class="fa fa-check faa-burst"></i></button>  
+                                <button class="btn btn-danger" type="button" (click)="updateDetail('cancel')"><i class="fa fa-times faa-burst"></i></button>  
+                               </div>
+                        </div>
+                    </div>
+            </td>
+        </tr>
+
+    </table>
+    <div *ngIf="errorMessage!='' && successMessage!=''">
+        <div class="error-message text-center">{{errorMessage}}</div>
+        <div class="success-message text-center">{{successMessage}}</div>
+    </div>
+</div>

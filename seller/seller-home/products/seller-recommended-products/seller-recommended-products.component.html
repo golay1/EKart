@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="text-center table-responsive table-border" >
+        <h3 class="title">My Recommended Products</h3>
+        <div *ngIf="(errorMessage!='' || successMessage!='')">
+            <div class="error-message text-center font-weight-bold">{{errorMessage}}</div>
+            <div class="success-message text-center font-weight-bold">{{successMessage}}</div>
+        </div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th style="text-align: center">Product Id</th>
+                    <th style="text-align: center">Image</th>
+                    <th style="text-align: center">Product Name<br>(Brand)</th>
+                    <th style="text-align: center">Price-Rs<br>(Discount)</th>
+                    <th style="text-align: center">Recom. DateTime</th>
+                    <th style="text-align: center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productRecommendList | paginate: {itemsPerPage: 10, currentPage: cp}">
+                    <td>{{product.productId}}</td>
+                    <div class="image-box">
+                        <img [src]="'assets/resources/'+ product.productId+'.jpg'" class="img-responsive center-block"
+                          alt="Image Not Found" onError="this.src='assets/resources/404.png'">
+                    </div>
+                    <td>{{product.name}}<br>({{product.brand}})</td>
+                    <td>{{product.price * (1-product.discount/100)|number:'1.2-2'}}<br>({{product.discount/100 | percent}} Off)</td>
+                    <td>{{product.dateTimeString}}</td>
+                    <td>
+                        <button class="btn-danger" (click)='deleteRecommendedProduct(product.productId)'>Delete Recommendation</button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)= "cp = $event"></pagination-controls>
+        <div *ngIf="(errorMessage!='' || successMessage!='')">
+            <div class="error-message text-center font-weight-bold">{{errorMessage}}</div>
+            <div class="success-message text-center font-weight-bold">{{successMessage}}</div>
+        </div>
+    </div>
+</div>

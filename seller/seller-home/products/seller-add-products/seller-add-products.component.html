@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2 bordering-side form-bg-light">
+    <h3 class="title">Enter the details to add a product</h3>
+    <br>
+    <form [formGroup]="productAddForm" (ngSubmit)="AddProduct()" #addProductForm="ngForm">
+      <table class="table table-condensed">
+        <tr>
+          <th>Product name :</th>
+          <td>
+            <input type="text" class="form-control"  formControlName="name" required="required"/>
+            <div class="field-error-message" *ngIf="productAddForm.get('name').invalid
+            && productAddForm.get('name').touched" >
+            Product name is mandatory.
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Product description :</th>
+          <td>
+            <textarea class="form-control" formControlName="description" required ></textarea>
+            <div class="field-error-message" *ngIf="productAddForm.get('description').invalid
+            && productAddForm.get('description').touched" > 
+            Description should be more than 10 charecters.
+        </div>
+          </td>
+         
+        </tr>
+        
+        
+        <tr>
+          <th>Category :</th>
+          <td>      
+            <select class="form-control"  formControlName="category">
+              <option *ngFor="let category of productCategoryList" value = "{{category}}">{{category}}</option>
+            </select>
+          
+        
+            <div class="field-error-message" *ngIf="productAddForm.get('category').invalid
+            && productAddForm.get('category').touched" >
+            Category is mandatory.
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Brand :</th>
+          <td>
+            <input type="text" class="form-control" formControlName="brand" required />
+            <div class="field-error-message" *ngIf="productAddForm.get('brand').invalid
+            && productAddForm.get('brand').touched" >
+            Brand is mandatory.
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Price in INR :</th>
+          <td>
+            <input type="number" class="form-control" formControlName="price"  min=0  required/>
+            <div class="field-error-message" *ngIf="productAddForm.get('price').invalid
+            && productAddForm.get('price').touched" >
+            Price is mandatory and should be a greater than or equal to 0
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Discount in % :</th>
+          <td>
+            <input type="number" class="form-control" formControlName="discount"  min=0  required/>
+            <div class="field-error-message" *ngIf="productAddForm.get('discount').invalid
+            && productAddForm.get('discount').touched" > 
+            Discount is mandatory and should be a greater than or equal to 0
+        </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Quantity :</th>
+          <td>
+            <input type="number" class="form-control" formControlName="quantity" min=1 required/>
+            <div class="field-error-message" *ngIf="productAddForm.get('quantity').invalid
+            && productAddForm.get('quantity').touched" >
+           Quantity is mandatory and should be a greater than or equal to 0
+        </div>
+          </td>
+        </tr>
+       
+        
+      </table>
+      <div>
+          <div class="row">          
+              <button [disabled]="!productAddForm.valid || productAddForm.pristine"           
+                  class="col-md-4 offset-md-4 btn btn-success form-button" >          
+                  Add Product          
+               </button>          
+        </div></div> 
+    </form>
+    <div *ngIf="message!=null || errorMessage!=null">
+      <div class="success-message text-center">{{message}}</div>
+      <div class="error-message text-center">{{errorMessage}}</div>
+    </div>
+  </div>
+</div>

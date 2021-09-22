@@ -1,0 +1,121 @@
+<div>
+    <div class="text-center table-responsive table-border" *ngIf="displayProducts && productList.length !=0">
+        <h3 class="title">My Products</h3>
+
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th style="text-align: center">Product Id</th>
+                    <th style="text-align: center">Product Name</th>
+                    <th style="text-align: center">Category</th>
+                    <th style="text-align: center">Brand</th>
+                    <th style="text-align: center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productList">
+                    <td>{{product.productId}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.brand}}</td>
+                    <td>
+                        <button class="btn-info" (click)='viewProductDetails(product)'>Modify</button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn-danger" (click)='removeProduct(product)'>Remove</button>&nbsp;&nbsp;  
+                        <button class="btn-warning" (click)='recommendProduct(product.productId)'>Recommend</button>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="(errorMessage!='' || successMessage!='')">
+            <div class="error-message text-center font-weight-bold">{{errorMessage}}</div>
+            <div class="success-message text-center font-weight-bold">{{successMessage}}</div>
+        </div>
+    </div>
+    <div *ngIf="!(displayProducts)">
+        <div class="form-bg-light table-responsive col-md-8 offset-md-2 ">
+            <h3 class="title">Product Details</h3>
+            <form (ngSubmit)="modifyProductDetails()" #modifyForm="ngForm">
+                <table class="table">
+                    <tr>
+                        <th>Product ID:</th>
+                        <td>
+                            <input readonly type="number" class="form-control"
+                                [(ngModel)]="productToBeModified.productId" name="productID" #productId="ngModel" />
+                            <div class="field-error-message" *ngIf="productId.invalid">Please provide proper value</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Product Name:</th>
+                        <td>
+                            <input type="text" required class="form-control" [(ngModel)]="productToBeModified.name"
+                                name="productName" #name="ngModel"/>
+                            <div class=" field-error-message" *ngIf="name.invalid">Name is mandatory
+        </div>
+        </td>
+        </tr>
+        <tr>
+            <th>Product Description:</th>
+            <td>
+                <textarea required cols="40" rows="3" class="form-control" [(ngModel)]="productToBeModified.description"
+                    name="description" #description="ngModel"></textarea>
+                <div class="field-error-message" *ngIf="description.invalid">Description is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Product Category:</th>
+            <td>
+                <select required class="form-control" [(ngModel)]="productToBeModified.category" name="category" #category="ngModel">
+                    <option *ngFor="let category of productCategoryList" value="{{category}}">{{category}}</option>
+                </select>
+                <div class="field-error-message" *ngIf="category.invalid">Category is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Product Brand:</th>
+            <td>
+                <input type="text" required class="form-control" [(ngModel)]="productToBeModified.brand"
+                    name="productBrand" #productBrand="ngModel" />
+                <div class="field-error-message" *ngIf="productBrand.invalid">Product Brand is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Product Price:</th>
+            <td>
+                <input type="number" required class="form-control" min="0" [(ngModel)]="productToBeModified.price"
+                    name="productPrice" #productPrice="ngModel" />
+                <div class="field-error-message" *ngIf="productPrice.invalid">Product Price is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Product Quantity:</th>
+            <td>
+                <input type="number" required class="form-control" min="1" [(ngModel)]="productToBeModified.quantity"
+                    name="productQuantity" #productQuantity="ngModel" />
+                <div class="field-error-message" *ngIf="productQuantity.invalid">Product Quantity is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Product Discount:</th>
+            <td>
+                <input type="number" required class="form-control" min="0" [(ngModel)]="productToBeModified.discount"
+                    name="productDiscount" #productDiscount="ngModel"/>
+                    <div class="field-error-message" *ngIf="productDiscount.invalid">Product Discount is mandatory</div>
+            </td>
+        </tr>
+        <tr>
+            <th><button type="submit" (click)="flag='1'" [disabled]="modifyForm.invalid" class="btn btn-success">Update
+                    Details</button></th>
+            <td><button type="button" (click)="displayProducts='True'" class="btn btn-warning">Cancel</button></td>
+        </tr>
+        </table>
+
+
+        </form>
+    </div>
+</div>
+<div class="text-center" *ngIf="displayProducts && productList.length ==0">
+    <h5 class="error-message">No products available</h5>
+</div>
+</div>
