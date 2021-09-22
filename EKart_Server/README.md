@@ -1,2 +1,2 @@
 # server
-MySQL database managed by XAMPP. DB config(application.properties: user=root, no pw) and SQL file in src>main>resources.
+MySQL database managed by XAMPP. In src>main>resources you will find SQL file and DB configuration file (application.properties - username=root, no password)
