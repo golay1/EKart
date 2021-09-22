@@ -1,3 +1,5 @@
+node_modules folder removed due to size (300mb)
+
 # Ekart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
